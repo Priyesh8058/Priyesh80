@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Management - Medicare Hospital</title>
+    <style>
+        body{
+            margin:0;
+            font-family:Arial;
+            background:#f1f8ff;
+        }
+        .header{
+            background:#0077b6;
+            color:white;
+            padding:18px 30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .header h2{margin:0}
+        .back-btn{
+            background:white;
+            color:#0077b6;
+            padding:10px 18px;
+            text-decoration:none;
+            border-radius:6px;
+            font-weight:bold;
+        }
+        .container{
+            width:90%;
+            max-width:1000px;
+            margin:30px auto;
+        }
+        .title{
+            text-align:center;
+            color:#0077b6;
+        }
+        .form-box,.table-box{
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 4px 15px rgba(0,0,0,.1);
+        }
+        .table-box{
+            margin-top:30px;
+            overflow-x:auto;
+        }
+        .form-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+        }
+        .form-group{
+            display:flex;
+            flex-direction:column;
+        }
+        label{
+            font-weight:bold;
+            margin-bottom:7px;
+        }
+        input{
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:6px;
+        }
+        .total-box{
+            margin-top:20px;
+            padding:15px;
+            background:#e3f2fd;
+            text-align:center;
+            border-radius:8px;
+        }
+        .total-box h2{
+            color:#0077b6;
+            margin:0;
+        }
+        .buttons{
+            text-align:center;
+            margin-top:20px;
+        }
+        button{
+            padding:11px 22px;
+            border:0;
+            border-radius:6px;
+            color:white;
+            cursor:pointer;
+            margin:5px;
+            font-weight:bold;
+        }
+        .save-btn{background:#0077b6}
+        .print-btn{background:#2a9d8f}
+        .clear-btn{background:#777}
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+        th{
+            background:#0077b6;
+            color:white;
+            padding:12px;
+        }
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+        @media(max-width:700px){
+            .form-grid{
+                grid-template-columns:1fr;
+            }
+        }
+        @media print{
+            .header,.form-box,.delete-btn{
+                display:none;
+            }
+            .container{width:100%}
+            .table-box{box-shadow:none}
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <h2>🏥 Medicare Hospital</h2>
+    <a href="admin.html" class="back-btn">Back to Admin</a>
+</header>
+<main class="container">
+    <h1 class="title">Billing Management</h1>
+    <div class="form-box">
+        <form id="billForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Bill ID</label>
+                    <input type="text" id="billId"
+                           placeholder="Enter Bill ID">
+                </div>
+                <div class="form-group">
+                    <label>Patient ID</label>
+                    <input type="text" id="billPatientId"
+                           placeholder="Enter Patient ID"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label>Treatment Charges</label>
+                    <input type="number" id="treatmentCharges"
+                           placeholder="Enter Treatment Charges"
+                           min="0" required>
+                </div>
+                <div class="form-group">
+                    <label>Doctor Charges</label>
+                    <input type="number" id="doctorCharges"
+                           placeholder="Enter Doctor Charges"
+                           min="0" required>
+                </div>
+            </div>
+            <div class="total-box">
+                <h2>Total Amount: ₹<span id="totalAmount">0</span></h2>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="save-btn">
+                    Save Bill
+                </button>
+                <button type="button"
+                        class="print-btn"
+                        onclick="printBill()">
+                    Print Bill
+                </button>
+                <button type="button"
+                        class="clear-btn"
+                        onclick="clearForm()">
+                    Clear
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="table-box">
+        <h2>Bill Records</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Bill ID</th>
+                    <th>Patient ID</th>
+                    <th>Treatment Charges</th>
+                    <th>Doctor Charges</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="billTable"></tbody>
+        </table>
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

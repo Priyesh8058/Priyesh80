@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Medicare Hospital</title>
+    <style>
+        body{
+            margin:0;
+            font-family:Arial;
+            background:#f1f8ff;
+        }
+        .header{
+            background:#0077b6;
+            color:white;
+            padding:18px 30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .header h2{margin:0}
+        .logout-btn{
+            background:white;
+            color:#0077b6;
+            border:0;
+            padding:10px 18px;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:30px auto;
+        }
+        .welcome{
+            text-align:center;
+            margin-bottom:30px;
+        }
+        .welcome h1,
+        .card h2,
+        .info-box h2{
+            color:#0077b6;
+        }
+        .welcome p,
+        .card p,
+        .info-box li{
+            color:#555;
+        }
+        .card-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:25px;
+        }
+        .card,
+        .info-box{
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 4px 15px rgba(0,0,0,.1);
+            text-align:center;
+        }
+        .icon{font-size:45px}
+        .btn{
+            display:inline-block;
+            background:#0077b6;
+            color:white;
+            text-decoration:none;
+            padding:10px 20px;
+            border-radius:6px;
+            margin-top:10px;
+        }
+        .info-box{
+            margin-top:30px;
+            text-align:left;
+        }
+        .info-box ul{
+            line-height:2;
+        }
+        @media(max-width:800px){
+            .card-grid{
+                grid-template-columns:1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <h2>🏥 Medicare Hospital</h2>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+</header>
+<main class="container">
+    <div class="welcome">
+        <h1>Staff Dashboard</h1>
+        <p>Welcome! Manage hospital activities easily.</p>
+    </div>
+    <div class="card-grid">
+        <div class="card">
+            <div class="icon">👤</div>
+            <h2>Patients</h2>
+            <p>Register and manage patient information.</p>
+            <a href="patient.html" class="btn">Manage Patients</a>
+        </div>
+        <div class="card">
+            <div class="icon">📅</div>
+            <h2>Appointments</h2>
+            <p>Book and manage patient appointments.</p>
+            <a href="appointment.html" class="btn">Manage Appointments</a>
+        </div>
+        <div class="card">
+            <div class="icon">💳</div>
+            <h2>Billing</h2>
+            <p>Create and manage patient bills.</p>
+            <a href="bill.html" class="btn">Manage Billing</a>
+        </div>
+    </div>
+    <section class="info-box">
+        <h2>Staff Responsibilities</h2>
+        <ul>
+            <li>Register new patients</li>
+            <li>Book patient appointments</li>
+            <li>Maintain patient information</li>
+            <li>Prepare patient bills</li>
+            <li>Print billing records</li>
+        </ul>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

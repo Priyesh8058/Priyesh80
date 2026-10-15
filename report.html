@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Medicare Hospital</title>
+    <style>
+        body{
+            margin:0;
+            font-family:Arial;
+            background:#f1f8ff;
+        }
+        .header{
+            background:#0077b6;
+            color:white;
+            padding:18px 30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .header h2{margin:0}
+        .back-btn{
+            background:white;
+            color:#0077b6;
+            padding:10px 18px;
+            text-decoration:none;
+            border-radius:6px;
+            font-weight:bold;
+        }
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:30px auto;
+        }
+        .title{
+            text-align:center;
+            color:#0077b6;
+        }
+        .report-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:25px;
+        }
+        .report-card,.summary{
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 4px 15px rgba(0,0,0,.1);
+            text-align:center;
+        }
+        .icon{font-size:45px}
+        .report-card h2,
+        .summary h2{
+            color:#0077b6;
+        }
+        .report-card p{
+            color:#555;
+        }
+        .report-btn{
+            background:#0077b6;
+            color:white;
+            border:0;
+            padding:11px 22px;
+            border-radius:6px;
+            cursor:pointer;
+        }
+        .summary{
+            margin-top:30px;
+        }
+        .summary-grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:15px;
+        }
+        .summary-box{
+            background:#e3f2fd;
+            padding:20px;
+            border-radius:8px;
+        }
+        .summary-box h3{
+            color:#0077b6;
+        }
+        .summary-box p{
+            font-size:25px;
+            font-weight:bold;
+            margin:5px;
+        }
+        @media(max-width:700px){
+            .report-grid,.summary-grid{
+                grid-template-columns:1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <h2>🏥 Medicare Hospital</h2>
+    <a href="admin.html" class="back-btn">Back to Admin</a>
+</header>
+<main class="container">
+    <h1 class="title">Hospital Reports</h1>
+    <div class="report-grid">
+        <div class="report-card">
+            <div class="icon">👨‍⚕️</div>
+            <h2>Patient Report</h2>
+            <p>View patient information.</p>
+            <a href="patient.html">
+                <button class="report-btn">View Patient Report</button>
+            </a>
+        </div>
+        <div class="report-card">
+            <div class="icon">🩺</div>
+            <h2>Doctor Report</h2>
+            <p>View doctor information.</p>
+            <a href="doctor-management.html">
+                <button class="report-btn">View Doctor Report</button>
+            </a>
+        </div>
+        <div class="report-card">
+            <div class="icon">📅</div>
+            <h2>Appointment Report</h2>
+            <p>View hospital appointments.</p>
+            <a href="appointment.html">
+                <button class="report-btn">View Appointment Report</button>
+            </a>
+        </div>
+        <div class="report-card">
+            <div class="icon">💳</div>
+            <h2>Billing Report</h2>
+            <p>View billing information.</p>
+            <a href="bill.html">
+                <button class="report-btn">View Billing Report</button>
+            </a>
+        </div>
+    </div>
+    <section class="summary">
+        <h2>Hospital Summary</h2>
+        <div class="summary-grid">
+            <div class="summary-box">
+                <h3>Patients</h3>
+                <p>125</p>
+            </div>
+            <div class="summary-box">
+                <h3>Doctors</h3>
+                <p>28</p>
+            </div>
+            <div class="summary-box">
+                <h3>Appointments</h3>
+                <p>42</p>
+            </div>
+            <div class="summary-box">
+                <h3>Total Billing</h3>
+                <p>₹45K</p>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

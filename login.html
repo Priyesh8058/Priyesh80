@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicare Hospital - Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background:
+                linear-gradient(
+                    rgba(0, 80, 130, 0.20),
+                    rgba(0, 80, 130, 0.20)
+                ),
+                url("hospital-bg.jpg") center / cover no-repeat fixed;
+        }
+        .login-box {
+            width: 380px;
+            max-width: 100%;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+        }
+        .hospital-icon {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #0077a3;
+            margin: 5px 0;
+            font-size: 27px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin: 12px 0 28px;
+            font-size: 14px;
+        }
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 15px;
+            background: white;
+        }
+        input:focus, select:focus {
+            border-color: #0083b0;
+            outline: 2px solid #d6f2ff;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 13px;
+            background: #0083b0;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background: #006d91;
+        }
+        .back-home {
+            text-align: center;
+            margin-top: 22px;
+        }
+        .back-home a {
+            color: #0083b0;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-home a:hover {
+            text-decoration: underline;
+        }
+        .footer-text {
+            border-top: 1px solid #ddd;
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 18px;
+            font-size: 12px;
+            color: #777;
+        }
+        @media (max-width: 480px) {
+            .login-box {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <div class="hospital-icon">🏥</div>
+        <h1>Medicare Hospital</h1>
+        <div class="subtitle">
+            Hospital Management System
+        </div>
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text"
+                   id="username"
+                   placeholder="Enter username"
+                   required>
+            <label for="password">Password</label>
+            <input type="password"
+                   id="password"
+                   placeholder="Enter password"
+                   required>
+            <label for="role">Login As</label>
+            <select id="role" required>
+                <option value="">Select Role</option>
+                <option value="admin">Admin</option>
+                <option value="doctor">Doctor</option>
+                <option value="staff">Staff</option>
+                <option value="patient">Patient</option>
+                <option value="appointment">Appointment Management</option>
+                <option value="payment">Payment</option>
+            </select>
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+        </form>
+        <div class="back-home">
+            <a href="index.html">← Back to Home</a>
+        </div>
+        <div class="footer-text">
+            © 2026 Medicare Hospital
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

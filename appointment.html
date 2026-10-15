@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Management - Medicare Hospital</title>
+    <style>
+        body{
+            margin:0;
+            font-family:Arial;
+            background:#f1f8ff;
+        }
+        .header{
+            background:#0077b6;
+            color:white;
+            padding:18px 30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .header h2{margin:0}
+        .back-btn{
+            background:white;
+            color:#0077b6;
+            padding:10px 18px;
+            text-decoration:none;
+            border-radius:6px;
+            font-weight:bold;
+        }
+        .container{
+            width:90%;
+            max-width:1000px;
+            margin:30px auto;
+        }
+        .title{
+            text-align:center;
+            color:#0077b6;
+        }
+        .form-box,
+        .table-box{
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 4px 15px rgba(0,0,0,.1);
+        }
+        .table-box{
+            margin-top:30px;
+            overflow-x:auto;
+        }
+        .form-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+        }
+        .form-group{
+            display:flex;
+            flex-direction:column;
+        }
+        label{
+            font-weight:bold;
+            margin-bottom:7px;
+        }
+        input,textarea{
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:15px;
+        }
+        textarea{
+            height:80px;
+            resize:none;
+        }
+        .full{
+            grid-column:span 2;
+        }
+        .buttons{
+            margin-top:20px;
+            text-align:center;
+        }
+        button{
+            padding:11px 22px;
+            border:0;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+        .save-btn{
+            background:#0077b6;
+            color:white;
+        }
+        .clear-btn{
+            background:#777;
+            color:white;
+            margin-left:8px;
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+        th{
+            background:#0077b6;
+            color:white;
+            padding:12px;
+        }
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+        @media(max-width:700px){
+            .form-grid{
+                grid-template-columns:1fr;
+            }
+            .full{
+                grid-column:span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <h2>🏥 Medicare Hospital</h2>
+    <a href="admin.html" class="back-btn">Back to Admin</a>
+</header>
+<main class="container">
+    <h1 class="title">Appointment Management</h1>
+    <div class="form-box">
+        <form id="appointmentForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Appointment ID</label>
+                    <input type="text" id="appointmentId"
+                           placeholder="Enter Appointment ID">
+                </div>
+                <div class="form-group">
+                    <label>Patient ID</label>
+                    <input type="text" id="appointmentPatientId"
+                           placeholder="Enter Patient ID" required>
+                </div>
+                <div class="form-group">
+                    <label>Patient Name</label>
+                    <input type="text" id="appointmentPatientName"
+                           placeholder="Enter Patient Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="appointmentPhone"
+                           placeholder="Enter Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <label>Doctor Name</label>
+                    <input type="text" id="appointmentDoctor"
+                           placeholder="Enter Doctor Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Appointment Date</label>
+                    <input type="date" id="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Appointment Time</label>
+                    <input type="time" id="appointmentTime" required>
+                </div>
+                <div class="form-group full">
+                    <label>Symptoms / Problem</label>
+                    <textarea id="symptoms"
+                              placeholder="Enter symptoms or problem"
+                              required></textarea>
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="save-btn">
+                    Save Appointment
+                </button>
+                <button type="button"
+                        class="clear-btn"
+                        onclick="clearForm()">
+                    Clear
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="table-box">
+        <h2>Appointment Records</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Symptoms</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="appointmentTable"></tbody>
+        </table>
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - Medicare Hospital</title>
+    <style>
+        body{
+            margin:0;
+            font-family:Arial;
+            background:#f1f8ff;
+        }
+        .header{
+            background:#0077b6;
+            color:white;
+            padding:18px 30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .header h2{margin:0}
+        .logout-btn{
+            background:white;
+            color:#0077b6;
+            border:0;
+            padding:10px 18px;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:30px auto;
+        }
+        .welcome{
+            text-align:center;
+            margin-bottom:30px;
+        }
+        .welcome h1,
+        .card h2,
+        .appointment-box h2{
+            color:#0077b6;
+        }
+        .welcome p,
+        .card p{
+            color:#555;
+        }
+        .card-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:25px;
+        }
+        .card,
+        .appointment-box{
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 4px 15px rgba(0,0,0,.1);
+            text-align:center;
+        }
+        .icon{font-size:45px}
+        .btn{
+            display:inline-block;
+            background:#0077b6;
+            color:white;
+            text-decoration:none;
+            padding:10px 20px;
+            border-radius:6px;
+            margin-top:10px;
+        }
+        .appointment-box{
+            margin-top:30px;
+            text-align:left;
+            overflow-x:auto;
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+        th{
+            background:#0077b6;
+            color:white;
+            padding:12px;
+        }
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+        @media(max-width:800px){
+            .card-grid{
+                grid-template-columns:1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <h2>🏥 Medicare Hospital</h2>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+</header>
+<main class="container">
+    <div class="welcome">
+        <h1>Doctor Dashboard</h1>
+        <p>Welcome Doctor! Manage your patients and appointments.</p>
+    </div>
+    <div class="card-grid">
+        <div class="card">
+            <div class="icon">👨‍⚕️</div>
+            <h2>Patients</h2>
+            <p>View patient information and details.</p>
+            <a href="patient.html" class="btn">View Patients</a>
+        </div>
+        <div class="card">
+            <div class="icon">📅</div>
+            <h2>Appointments</h2>
+            <p>View and manage patient appointments.</p>
+            <a href="appointment.html" class="btn">View Appointments</a>
+        </div>
+        <div class="card">
+            <div class="icon">📋</div>
+            <h2>Reports</h2>
+            <p>View hospital reports and information.</p>
+            <a href="report.html" class="btn">View Reports</a>
+        </div>
+    </div>
+    <section class="appointment-box">
+        <h2>Today's Appointments</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Patient Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Symptoms</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A001</td>
+                    <td>Rahul Kumar</td>
+                    <td>29-09-2026</td>
+                    <td>10:30 AM</td>
+                    <td>Fever</td>
+                </tr>
+                <tr>
+                    <td>A002</td>
+                    <td>Neha Sharma</td>
+                    <td>29-09-2026</td>
+                    <td>12:00 PM</td>
+                    <td>Headache</td>
+                </tr>
+                <tr>
+                    <td>A003</td>
+                    <td>Amit Singh</td>
+                    <td>29-09-2026</td>
+                    <td>04:30 PM</td>
+                    <td>Back Pain</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
